@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+  
+development:
+  <<: *default
+  database: hakathon2018-kaisyoku_development
+
+test:
+  <<: *default
+  database: hakathon2018-kaisyoku_test
+
+production:
+  <<: *default
+  database: hakathon2018-kaisyoku_production
+  username: hakathon2018-kaisyoku
+  password: <%= ENV['HAKATHON2018-KAISYOKU_DATABASE_PASSWORD'] %>
