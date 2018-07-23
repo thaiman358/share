@@ -1,0 +1,2 @@
+class BeensController < ApplicationController
+end
