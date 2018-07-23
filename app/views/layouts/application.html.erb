@@ -5,7 +5,7 @@
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tasty &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
+	<title>PwC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -39,24 +39,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 	
-	 Animate.css 
+	 <!--Animate.css -->
 	<link rel="stylesheet" href="assets/css/animate.css">
-	 Icomoon Icon Fonts
+	 <!--Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="assets/css/icomoon.css">
-	 Bootstrap  
+	 <!--Bootstrap  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	 Flexslider  
+	 <!--Flexslider  -->
 	<link rel="stylesheet" href="assets/css/flexslider.css">
 
-	 Theme style  
+	 <!--Theme style  -->
 	<link rel="stylesheet" href="assets/css/style.css">
 
-	 Modernizr JS 
+	 <!--Modernizr JS -->
 	<script src="/assets/js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<!--<script src="js/respond.min.js"></script>-->
-	<!--<![endif]-->-->
+	<!--<![endif]-->
+	
+	<!-- Favicon -->
+  	<link rel="shortcut icon" href="/assets/favicon.jpg">
+
 
 	</head>
 
@@ -67,29 +71,30 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 text-center logo-wrap">
-						<div id="fh5co-logo"><a href="/tests">PwC<span>.</span></a></div>
+						<div id="fh5co-logo"><a href="tops">PwC<span>.</span></a></div>
 					</div>
 					<div class="col-xs-12 text-center menu-1 menu-wrap">
 						<ul>
 						  <li class="has-dropdown">
-								<a href="#">All Restaurant</a>
+								<a href="restaurants">Restaurants</a>
 								<ul class="dropdown">
 									<li><a href="#">Japanese</a></li>
 									<li><a href="#">Chinese</a></li>
 									<li><a href="#">Italian</a></li>
 								</ul>
 							</li>
-							<li><a href="/beens">Restaurant you've been</a></li>
-							<li><a href="#">Share Your Like</a></li>
-							<li><a href="#">Article you've read</a></li>
-							<li><a href="#">Post New Restaurant</a></li>
-						  <% if logged_in? %>
-							<li><%= link_to "Mypage", user_path(current_user.id) %></li>
-							<li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-						  <% else %>
-						    <li><%= link_to "Sign up", new_user_path %></li>
-                            <li><%= link_to "Login", new_session_path %></li>
-                          <% end %>
+							<li><a href="visiteds">Visited</a></li>
+							<li><a href="favorites">Favorites</a></li>
+							<li><a href="articles">Articles</a></li>
+							<li><a href="preferences">Preference Share</a></li>							
+							<li><a href="restaurants/new">New Restaurants</a></li>
+                            <% if logged_in? %>
+							  <li><%= link_to "Mypage", user_path(current_user.id) %></li>
+							  <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+                            <% else %>
+						      <li><%= link_to "Sign up", new_user_path %></li>
+                              <li><%= link_to "Login", new_session_path %></li>
+                            <% end %>
 						</ul>
 					</div>
 				</div>
