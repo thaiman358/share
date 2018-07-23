@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session.delete(:user_id)
-    redirect_to tests_path
+    redirect_to tops_path
   end
 
 end

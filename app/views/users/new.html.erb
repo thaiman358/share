@@ -1,47 +1,37 @@
+<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(assets/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="display-t js-fullheight">
+						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+							<h1>Sign up</h1>
+							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 	<div id="fh5co-about" class="fh5co-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
 						<%= form_with(model: @user, local: true) do |f| %>
-            <table>
-              <tr>
-                <td>
                   <%= f.label :name %>
-                </td>
-                <td>
                   <%= f.text_field :name %>
-                </td>
-              </tr>
-              <br>
-              <tr>
-                <td>
+
                   <%= f.label :email %>
-                </td>
-                <td>
                   <%= f.email_field :email %>
-                </td>
-              </tr>
-              <br>
-              <tr>
-                <td>
+
                   <%= f.label :password %>
-                </td>
-                <td>
                   <%= f.password_field :password %>
-                </td>
-              </tr>
-              <br>
-              <tr>
-                <td>
-                  <%= f.label :password_confirmation %>
-                </td>
-                <td>
+
+                  <%= f.label :confirmation %>
                   <%= f.password_field :password_confirmation %>
-                </td>
-              </tr>
-            </table>
-						<p><a href="#" class="btn btn-primary btn-outline"><%= f.submit "Sign up!" %></a></p>
+
+						      <%= f.submit "Sign up!" %>
 						
 						<% end %>
 					</div>
