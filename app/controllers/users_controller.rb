@@ -8,12 +8,12 @@ class UsersController < ApplicationController
       if @user.save
       # 保存の成功した場合の処理
         session[:user_id] = @user.id
-        redirect_to tests_path
+        redirect_to tops_path
       else
         render 'new'
       end
     end
-    
+        
     def show
       @user = User.find(params[:id])
     end
