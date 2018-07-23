@@ -1,5 +1,13 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  (省略)
+  
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log in" %>
+  
 <% end %>
