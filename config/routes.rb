@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources:tests
-  resources:beens
-  resources:mypages
+  resources:tops
+  resources:restaurants
+  resources:forms
+  resources:visiteds
+  resources:favorites
+  resources:articles
+  resources:preferences
 end
