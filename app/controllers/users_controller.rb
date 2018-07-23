@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
       # 保存の成功した場合の処理
+        session[:user_id] = @user.id
         redirect_to tests_path
       else
         render 'new'
