@@ -88,7 +88,13 @@
 							<li><a href="articles">Articles</a></li>
 							<li><a href="preferences">Preference Share</a></li>							
 							<li><a href="restaurants/new">New Restaurants</a></li>
-							<li><a href="users">My Page</a></li>
+                            <% if logged_in? %>
+							  <li><%= link_to "Mypage", user_path(current_user.id) %></li>
+							  <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+                            <% else %>
+						      <li><%= link_to "Sign up", new_user_path %></li>
+                              <li><%= link_to "Login", new_session_path %></li>
+                            <% end %>
 						</ul>
 					</div>
 				</div>
