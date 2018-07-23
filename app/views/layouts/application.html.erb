@@ -83,8 +83,12 @@
 							<li><a href="#">Share Your Like</a></li>
 							<li><a href="#">Article you've read</a></li>
 							<li><a href="#">Post New Restaurant</a></li>
-							<li><a href="/users/show">My Page</a></li>
-							<li><a href="/users/new">Sign up</a></li>
+						  <% if logged_in? %>
+							<li><%= link_to "Mypage", user_path(current_user.id) %></li>
+							<li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+						  <% else %>
+						    <li><%= link_to "Sign up", new_user_path %></li>
+                            <li><%= link_to "Login", new_session_path %></li>
 						</ul>
 					</div>
 				</div>
