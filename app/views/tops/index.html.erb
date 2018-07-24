@@ -22,20 +22,21 @@
 	<div id="fh5co-about" class="fh5co-section">
 		<div class="container">
 			<div class="row">
+				<% @restaurants.each do |restaurant| %>	
 				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
 				    <div class="section-heading">
-				        <h2>The most popular Restaurant [Need fix]</h2>
+				        <h2>The Latest Restaurant</h2>
 					    <img src="assets/hero_1.jpeg" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
 					</div>
 				</div>
 				<div class="col-md-5 col-md-push-1 animate-box">
 					<div class="section-heading">
-						<h2>PwC Restaurant</h2>
-						<p>this restaurant ~~~</p>
-						<p>location:~~<br>proce:~~</p>
-						<p><a href="#" class="btn btn-primary btn-outline">View more</a></p>
+						<h2><%= restaurant.name%></h2>
+						<p><%= restaurant.overview%></p>
+						<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get%>
 					</div>
 				</div>
+				<%end%>
 			</div>
 		</div>
 	</div>
@@ -46,55 +47,21 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Japanese Restaurant</h2>
-			
 				</div>
 			</div>
 			<div class="row">
+				<% @japanese.last(3).each do |japanese| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Deloitte Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
+							<h3><a><%=japanese.name%></a></h3>
+							<p><%=japanese.overview%></p>
+								<%= link_to "Show", restaurant_path(japanese[:id]), :method=>:get%>
 						</div> 
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_2.jpeg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">KPMG Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_3.jpeg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">EY Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
+				<%end%>
 			</div>
 		</div>
 	</div>
