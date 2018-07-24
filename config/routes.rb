@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources:preferences
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  
+  
+  post '/forms/detail', to:'forms#detail'
 end

@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180724051521) do
   create_table "preferences", force: :cascade do |t|
     t.string "email"
     t.string "preference"
+    t.string "unpreference"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +70,8 @@ ActiveRecord::Schema.define(version: 20180724051521) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "industry", default: 0
+    t.integer "title", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
