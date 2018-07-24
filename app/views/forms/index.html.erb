@@ -10,7 +10,14 @@
                 <div class="col-md-12 text-center">
                     <div class="display-t js-fullheight">
                         <div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-                            <h1>予約詳細</h1>
+                            <h1>Client Infomation</h1>
+                            <br>
+                            <h2>Preference<%= @preference.preference %></h2>
+                            <h2>Unpreference<%= @preference.unpreference %></h2>
+                            <h1>Ice Break</h1>
+                            <h2><%= @article.title %></h2>
+                            <h2><%= @article.content %></h2>
+                            
                             <!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
                         </div>
                     </div>
