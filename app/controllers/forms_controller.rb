@@ -2,13 +2,15 @@ class FormsController < ApplicationController
   protect_from_forgery :except => [:destroy]
   before_action :check_login, only: [:new, :show, :edit, :update, :destroy]
   def index
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
     @preference = Preference.where(email: params[:email]).find_by(user_id: current_user.id)
     @article = Article.where(arttype: params[:arttype]).last
+    Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
+    Read.create(user_id: current_user.id, article_id: @article.id)
   end
 
   def new
     @restaurant = Restaurant.first
-    
   end
 
   def create
