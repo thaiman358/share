@@ -58,7 +58,9 @@
 								</div>
 								<div class="timeline-body">
 								    <% industries = ["商社","メーカー","小売","金融","インフラ","物流","建設・不動産","サービス業","広告・マスコミ","ソフトウエア・通信","公務員","その他"]%>
-									<p><% puts industries[(@user.industry-1)]%></p>
+									<p>
+									<%= industries[(@user.industry-1)]%>
+									</p>
 								</div>
 							</div>
 						</li>
@@ -72,7 +74,7 @@
 								<div class="timeline-body">
 									<% choices = ["取締役会長クラス","取締役クラス","執行役員クラス","部長クラス","課長クラス","係長クラス"]%>
 									<p>
-								      <% puts choices[(@user.title-1)]
+								      <%= choices[(@user.title-1)]%>
 									</p>
 								</div>
 							</div>
