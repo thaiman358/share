@@ -1,4 +1,9 @@
 class PreferencesController < ApplicationController
+    def index
+        @preference = Preference.where(email: current_user.email)
+        @otherpreference = Preference.where(user_id: current_user.id).where.not(email: current_user.email)
+    end
+
     def new
         @preference = Preference.new
     end
@@ -8,7 +13,7 @@ class PreferencesController < ApplicationController
         #@preference.email = current_user.email
         @preference.user_id = current_user.id
         if @preference.save
-            redirect_to tops_path
+            redirect_to preferences_path
         else
             render 'new'
         end
