@@ -57,11 +57,12 @@ ActiveRecord::Schema.define(version: 20180724051521) do
     t.integer "category"
     t.text "overview"
     t.string "hour"
-    t.string "tel"
-    t.string "price"
+    t.integer "tel"
+    t.integer "price"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
