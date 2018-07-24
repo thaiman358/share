@@ -26,7 +26,7 @@ class FormsController < ApplicationController
     
   end
   
-  def detail
+  def reserve
     
   end
   

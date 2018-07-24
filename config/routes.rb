@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   
   
-  post '/forms/detail', to:'forms#detail'
+  post '/forms/reserve', to:'forms#reserve'
 end
