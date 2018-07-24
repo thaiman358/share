@@ -4,7 +4,7 @@ class PreferencesController < ApplicationController
     end
     
     def create
-        @preference = Preference.new
+        @preference = Preference.new(preference_params)
     end
     
     private
