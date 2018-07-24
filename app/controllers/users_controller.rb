@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       if @user.save
       # 保存の成功した場合の処理
         session[:user_id] = @user.id
-        redirect_to tops_path
+        redirect_to new_preference_path
       else
         render 'new'
       end
@@ -21,6 +21,6 @@ class UsersController < ApplicationController
     private
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :title, :industry)
     end
 end

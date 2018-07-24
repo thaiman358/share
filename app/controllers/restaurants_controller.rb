@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+<<<<<<< app/controllers/restaurants_controller.rb
   
   def new
     @restaurant = Restaurant.new
@@ -15,8 +16,28 @@ class RestaurantsController < ApplicationController
         format.html { render :new }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
-    end  end
-
+    end
+    
+    def index
+      @restaurants=Restaurant.all
+    end
+    def japanese
+      @restaurants=Restaurant.all
+    end
+    def western
+      @restaurants=Restaurant.all
+    end
+    def italian
+      @restaurants=Restaurant.all
+    end
+    def french
+      @restaurants=Restaurant.all
+    end
+    def chinese
+      @restaurants=Restaurant.all
+    end
+    def others
+      @restaurants=Restaurant.all
 
   private
     def set_restaurant

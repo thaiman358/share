@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20180724020556) do
     t.index ["user_id"], name: "index_favs_on_user_id"
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.string "email"
+    t.string "preference"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
   create_table "reads", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "article_id"
@@ -46,7 +55,7 @@ ActiveRecord::Schema.define(version: 20180724020556) do
     t.string "name"
     t.integer "category"
     t.text "overview"
-    t.time "hour"
+    t.string "hour"
     t.integer "tel"
     t.integer "price"
     t.text "address"
@@ -61,6 +70,8 @@ ActiveRecord::Schema.define(version: 20180724020556) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "industry", default: 0
+    t.integer "title", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
