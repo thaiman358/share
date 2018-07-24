@@ -1,4 +1,9 @@
 class PreferencesController < ApplicationController
+    def index
+        @preference = Preference.where(email: current_user.email)
+        @otherpreference = Preference.where(user_id: current_user.id).where.not(email: current_user.email)
+    end
+
     def new
         @preference = Preference.new
     end
@@ -13,6 +18,7 @@ class PreferencesController < ApplicationController
             render 'new'
         end
     end
+    
     
     private
     def preference_params
