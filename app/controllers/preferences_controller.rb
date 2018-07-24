@@ -13,12 +13,11 @@ class PreferencesController < ApplicationController
         #@preference.email = current_user.email
         @preference.user_id = current_user.id
         if @preference.save
-            redirect_to tops_path
+            redirect_to preferences_path
         else
             render 'new'
         end
     end
-    
     
     private
     def preference_params
