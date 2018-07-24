@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20180724021723) do
     t.string "name"
     t.integer "category"
     t.text "overview"
-    t.time "hour"
-    t.string "tel"
-    t.string "price"
+    t.string "hour"
+    t.integer "tel"
+    t.integer "price"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 20180724021723) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "industry", default: 0
-    t.integer "title", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
