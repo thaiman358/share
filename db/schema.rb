@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20180724021723) do
     t.string "name"
     t.integer "category"
     t.text "overview"
-    t.string "hour"
-    t.integer "tel"
-    t.integer "price"
+    t.time "hour"
+    t.string "tel"
+    t.string "price"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
