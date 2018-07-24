@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources:visiteds
   resources:favorites
   resources:articles
+  resources:ownprefers
   resources:preferences
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
