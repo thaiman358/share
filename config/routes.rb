@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'form/index'
+
+  get 'form/new'
+
+  get 'form/create'
+
+  get 'form/show'
+
+  get 'form/confirm'
+
+  get 'form/edit'
+
   resources:tops
   resources:restaurants
   resources:forms
