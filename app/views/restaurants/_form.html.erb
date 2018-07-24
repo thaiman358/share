@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
 
-					<%= form_with(mode: restaurant, local: true) do |form| %>
+					<%= form_with(model: @restaurant, local: true, url: restaurants_path) do |form| %>
 					
 						  <div class="field">
     						<%= form.label :name %>
