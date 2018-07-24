@@ -6,7 +6,8 @@ class FormsController < ApplicationController
   end
 
   def new
-    @restaurants = Restaurants.where(id: 1)
+    @restaurant = Restaurant.first
+    
   end
 
   def create
@@ -25,11 +26,14 @@ class FormsController < ApplicationController
     
   end
   
-  # メソッドとして切り出し。privateを指定することで、BlogsControllerクラス内でしか呼び出せない
+  def reserve
+    
+  end
+  
   private
   def check_login
     if not logged_in?
-      redirect_to new_session_path
+      redirect_to new_session_path  
     end
   end
 end

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # coding: utf-8
+Article.create(industry: '1', arttype: '2', title: 'AI', content: 'AIサイコー')
 Restaurant.create(name: 'つきじ治作', category: '1', overview: '半世紀を超えて磨かれた技とおもてなしの心が醸す味の調べ　かけがえのない豊かな時をご提供いたします　四季の会席や80年伝承され続ける名物の水たきをお愉しみください', tel: '03-3541-2391',hour: '17:00~22:00', price: '25,000円', address: '東京都中央区明石町14-19')
 Restaurant.create(name: 'ステーキハウスハマ六本木店', category: '2', overview: '鉄板焼きの老舗中の老舗。40年以上の歴史を誇る本店。厳選された黒毛和牛のみを使用。皆様に愛され続ける【ハマ】を目指します。', tel: '03-3403-1717',hour: '17:00~23:00', price: '20,000円', address: '東京都港区六本木7-2-10')
 Restaurant.create(name: 'HEINZ BECK', category: '3', overview: 'ミシュランガイド 東京 2018一つ星ローマで唯一ミシュランガイド三つ星を13年連続獲得しているレストラン「ラ・ペルゴラ」の料理を日本で味わうことができます。', tel: '03-3284-0030',hour: '17:30~23:00', price: '25,000円', address: '東京都千代田区丸の内1-1-3 日本生命丸の内ガーデンタワー1F')
