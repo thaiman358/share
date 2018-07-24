@@ -37,11 +37,13 @@
 									<% when 4 then%>
 									<%= "フレンチ" %>
 									<% when 5 then%>
+									<%= "中華" %>
+									<% when 6 then%>
 									<%= "その他" %>
 								<% end %>
 							</span>
 							<p><%= restaurant.overview %></p>
-							<p><a href="/restaurants/restaurant.id" class="btn btn-primary btn-outline">View more</a></p>
+								<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get%>
 						</div>
 					</div>
 				<% end %>
