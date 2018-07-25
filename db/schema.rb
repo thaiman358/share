@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20180724051521) do
   create_table "preferences", force: :cascade do |t|
     t.string "email"
     t.string "preference"
-    t.string "unpreference"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,8 +56,8 @@ ActiveRecord::Schema.define(version: 20180724051521) do
     t.integer "category"
     t.text "overview"
     t.string "hour"
-    t.integer "tel"
-    t.integer "price"
+    t.string "tel"
+    t.string "price"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

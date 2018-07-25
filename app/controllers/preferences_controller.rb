@@ -19,6 +19,10 @@ class PreferencesController < ApplicationController
         end
     end
     
+    def show
+      @preference = Preference.find(params[:id])
+    end
+    
     private
     def preference_params
       params.require(:preference).permit(:email, :preference, :user_id)
