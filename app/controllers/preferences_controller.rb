@@ -37,10 +37,11 @@ class PreferencesController < ApplicationController
       else
         render 'edit'
       end
+      redirect_to tops_path
     end
     
     private
     def preference_params
-      params.require(:preference).permit(:email, :preference, :user_id)
+      params.require(:preference).permit(:email, :preference, :unpreference,:user_i, :user_name, :client_name)
     end
 end

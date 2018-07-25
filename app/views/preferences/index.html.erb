@@ -51,7 +51,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item animate-box">
 					<% @otherpreference.each do |others|%>
-						<h3><%= others.email%></h3>
+						<h3><%= others.client_name%>様</h3>
 						<p><%= others.preference%></p>
 						<p><%= link_to "edit", edit_preference_path(others.id) %><p>
 					<% end %>
