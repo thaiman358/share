@@ -18,12 +18,13 @@
 			<div class="row">
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
-                       <%= form_with(model:@preference, url: tops_path, :method => :get,local: true) do |f| %>
+                       <%= form_with(model:@preference,local: true) do |f| %>
                          <%= f.hidden_field :email %>
 
                          <%= f.label :"Answer Preference" %>
                          <%= f.text_field :preference %>
-                     
+                         <%= f.label :"Answer Unpreference" %>
+                     　　<%= f.text_field :unpreference %>
                          <%= f.submit "send" %>
                        <% end %>
 
