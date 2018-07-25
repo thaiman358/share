@@ -1,4 +1,5 @@
 class PreferencesController < ApplicationController
+    User = Struct.new(:name, :email)
     def index
         @preference = Preference.where(email: current_user.email)
         @otherpreference = Preference.where(user_id: current_user.id).where.not(email: current_user.email)
@@ -13,7 +14,9 @@ class PreferencesController < ApplicationController
         #@preference.email = current_user.email
         @preference.user_id = current_user.id
         if @preference.save
-            redirect_to preferences_path
+          user = User.new("name", @preference.email)
+          PostMailer.post_email(user, @preference).deliver
+          redirect_to preferences_path
         else
             render 'new'
         end
