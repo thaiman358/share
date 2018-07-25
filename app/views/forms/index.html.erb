@@ -13,36 +13,65 @@
                             <h1>Restaurant Infomation</h1>
                             <br>
                             <h2><%= @restaurant.name %></h2>
-                            <h2><%= @restaurant.overview %></h2>                            
+                            <h2><%= @restaurant.overview %></h2>  
+                            <h2><%= @restaurant.address %></h2>  
+                              <!-- Google Mapを表示させるための記述 -->
+                               <script type="text/javascript">
+                                 function initMap() {
+                                  var test ={lat: <%= @latitude %>, lng: <%= @longitude %>};
+                                  var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 17,
+                                    center: test
+                                  });
+                                  var transitLayer = new google.maps.TransitLayer();
+                                    transitLayer.setMap(map);
+                                  var contentString = '住所：<%= @restaurant.address %>';
+                                  var infowindow = new google.maps.InfoWindow({
+                                    content: contentString
+                                    });
+                                  var marker = new google.maps.Marker({
+                                    position:test,
+                                    map: map,
+                                    title: contentString
+                                  });
+                                    marker.addListener('click', function() {
+                                    infowindow.open(map, marker);
+                                    });
+                                  }
+                                </script>
+                                <!-- Google Map APIを取得 -->
+                                <script async defer
+                                  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDVgyykpgwYCBlPw0vtyXUUKyywayBRBho&callback=initMap">
+                                </script>
+                                  <p>
+                                    <% @restaurant.address %>
+                                  </p>
+                                  <p>
+                                    <% @restaurant.latitude %>
+                                  </p>
+                                  <p>
+                                    <% @restaurant.longitude %>
+                                  </p>
+                                    <style type="text/css">
+                                      #map { height: 400px;
+                                        margin-left:auto;
+                                        margin-right:auto;
+                                        text-align:left;
+                                        width: 80%;
+                                        background-color:white;
+                                      }
+                                    </style>
+                                    <div id="map"></div>
                             <h1>Client Infomation</h1>
                             <br>
                             <h2>Preference<%= @preference.preference %></h2>
                             <h2>Unpreference<%= @preference.unpreference %></h2>
-                            <h1>Ice Break</h1>
+                            <h1>Article</h1>
                             <h2><%= @article.title %></h2>
                             <h2><%= @article.content %></h2>
-                            
-                            
-                            <!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-
-    <div id="fh5co-blog" class="fh5co-section">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-12 fh5co-heading animate-box">
-                    <h2>List the restaurants</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis. Ad magni perspiciatis, voluptatum repellat.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>

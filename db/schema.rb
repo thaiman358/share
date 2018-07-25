@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724051521) do
+ActiveRecord::Schema.define(version: 20180725061745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.integer "industry"
-    t.integer "type"
+    t.integer "arttype"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "restaurant_id"
+    t.index ["restaurant_id"], name: "index_articles_on_restaurant_id"
   end
 
   create_table "favs", force: :cascade do |t|
@@ -36,9 +38,12 @@ ActiveRecord::Schema.define(version: 20180724051521) do
   create_table "preferences", force: :cascade do |t|
     t.string "email"
     t.string "preference"
+    t.string "unpreference"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_name"
+    t.string "client_name"
     t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
@@ -56,12 +61,14 @@ ActiveRecord::Schema.define(version: 20180724051521) do
     t.integer "category"
     t.text "overview"
     t.string "hour"
-    t.string "tel"
-    t.string "price"
+    t.integer "tel"
+    t.integer "price"
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,4 +91,5 @@ ActiveRecord::Schema.define(version: 20180724051521) do
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
+  add_foreign_key "articles", "restaurants"
 end

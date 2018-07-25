@@ -5,3 +5,4 @@
 <p><%= @restaurant.hour %></p>
 <p><%= @restaurant.price %></p>
 <p><%= @restaurant.address %></p>
+<%= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>

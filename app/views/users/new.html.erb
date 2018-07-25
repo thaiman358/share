@@ -19,23 +19,61 @@
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
 
-				      <%= form_for(@user) do |f| %>
-                        <%= f.label :name %>
-                        <%= f.text_field :name %>
+				      	<%= form_for(@user) do |f| %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+                        			<%= f.label :name %>
+                        			<%= f.text_field :name, class:"form-control" %>
+								</div>
+							</div>
+							
+				      		<div class="row form-group">
+								<div class="col-md-12">
+                        			<%= f.label :email %>
+                        			<%= f.email_field :email, class:"form-control"  %>
+								</div>
+							</div>
 
-                        <%= f.label :email %>
-                        <%= f.email_field :email %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+			                        <%= f.label :password %>
+            			            <%= f.password_field :password, class:"form-control"  %>
+								</div>
+							</div>
 
-                        <%= f.label :password %>
-                        <%= f.password_field :password %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+			                        <%= f.label :confirmation %>
+            			            <%= f.password_field :password_confirmation, class:"form-control"  %>
+								</div>
+							</div>
 
-                        <%= f.label :confirmation %>
-                        <%= f.password_field :password_confirmation %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+			   					    <% industries = [["商社", 1], ["メーカー", 2], ["小売", 3], ["金融", 4], ["インフラ", 5], ["物流", 6], ["建設・不動産", 7], ["サービス業", 8], ["広告・マスコミ", 9], ["ソフトウエア・通信", 10], ["公務員", 11]]%>            
+            			            <%= f.label :industry %>
+                        			<%= f.select :industry, industries, {}, {class: 'form-control'} %>
+                        			<%#= f.select :industry, industries, {}, {class: 'form-control'}, :prompt => "選択してください" %>
+								</div>
+							</div>
+							
 
-   					    <% industries = [["商社", 1], ["メーカー", 2], ["小売", 3], ["金融", 4], ["インフラ", 5], ["物流", 6], ["建設・不動産", 7], ["サービス業", 8], ["広告・マスコミ", 9], ["ソフトウエア・通信", 10], ["公務員", 11]]%>            
-                        <%= f.label :industry %>
-                        <%= f.select :industry, industries, :prompt => "選択してください"  %>
-                        
+
+				      		<div class="row form-group">
+								<div class="col-md-12">
+			  					    <% choices = [["取締役会長クラス", 1], ["取締役クラス", 2], ["執行役員クラス", 3], ["部長クラス", 4], ["課長クラス", 5], ["係長クラス", 6]]%>            
+            			            <%= f.label :title %>
+                        			<%= f.select :title, choices, {}, {class: 'form-control'}  %>
+								</div>
+							</div>
+
+				      		<div class="row form-group">
+								<div class="col-md-12">
+							    	<%= f.submit "Sign up", class:"btn btn-primary btn-outline btn-lg" %>
+								</div>
+							</div>
+
+
                         <%# detail1 = [["総合商社", 1], ["専門", 2]]%>
                         <%# detail2 = [["自動車メーカー", 1], ["食品メーカー", 2], ["消費財メーカー", 3], ["化粧品メーカー", 4], ["製薬メーカー", 5], ["家電メーカー", 6], ["素材メーカー", 7], ["その他", 8]]%>
                         <%# detail3 = [["総合小売", 1], ["衣料品", 2], ["ドラッグストア", 3], ["家電小売", 4], ["自動車小売", 5], ["通信小売", 6], ["その他", 7]]%>
@@ -48,11 +86,7 @@
                         <%# detail10 = [["通信", 1], ["ソフトウエア開発", 2], ["その他", 3]]%>
                         <%# detail11 = [["官公庁", 1], ["地方公務員", 2], ["その他", 3]]%>
 
-  					    <% choices = [["取締役会長クラス", 1], ["取締役クラス", 2], ["執行役員クラス", 3], ["部長クラス", 4], ["課長クラス", 5], ["係長クラス", 6]]%>            
-                        <%= f.label :title %>
-                        <%= f.select :title, choices, :prompt => "選択してください"  %>
 
-			      <%= f.submit "Sign up!" %>
 						
 						<% end %>
 					</div>

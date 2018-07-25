@@ -2,15 +2,24 @@ class FormsController < ApplicationController
   protect_from_forgery :except => [:destroy]
   before_action :check_login, only: [:new, :show, :edit, :update, :destroy]
   def index
+    arttype = params[:arttype]
     @restaurant = Restaurant.find_by(id: params[:restaurant_id])
     @preference = Preference.where(email: params[:email]).find_by(user_id: current_user.id)
-    @article = Article.where(arttype: params[:arttype]).last
+    if arttype == '2' then #社外＋初回は料理に関する記事を表示
+      @article = Article.where(arttype: arttype, restaurant_id: @restaurant.id).last
+    else
+      @article = Article.where(arttype: arttype, industry: current_user.industry).last
+    end
     Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
     Read.create(user_id: current_user.id, article_id: @article.id)
+    #Google map API表示
+    @latitude = @restaurant.latitude
+    @longitude = @restaurant.longitude
+    @address = @restaurant.address
   end
 
   def new
-    @restaurant = Restaurant.first
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
   end
 
   def create

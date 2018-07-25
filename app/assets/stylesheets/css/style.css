@@ -453,6 +453,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   float: left;
   margin-bottom: 50px;
+  /*background-color: black;*/
 }
 .section-heading h2 {
   font-style: 40px;
@@ -1726,7 +1727,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .form-control {
   box-shadow: none;
-  background: transparent;
+  /*background: transparent;*/
+  background: black;
   border: 2px solid rgba(255, 255, 255, 0.3);
   height: 54px;
   font-size: 20px;
@@ -1784,3 +1786,7 @@ textarea {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+#restaurant_overwiew{
+  height: 100px;
+}

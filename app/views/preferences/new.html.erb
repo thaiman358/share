@@ -19,12 +19,15 @@
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
                        <%= form_with(model:@preference, local: true) do |f| %>
-                         <%= f.label :"Client's email" %>
-                         <%= f.email_field :email %>
-
-                         <%= f.hidden_field :preference %>
+                        <%= f.label :"User name" %>
+                        <%= f.text_field :user_name %>
+                        <%= f.label :"Client's name" %>
+						<%= f.text_field :client_name %>
+						<%= f.label :"Client's email" %>
+                        <%= f.email_field :email %>
+                        <%= f.hidden_field :preference %>
                      
-                         <%= f.submit "send" %>
+                        <%= f.submit "send" %>
                        <% end %>
 
 					</div>

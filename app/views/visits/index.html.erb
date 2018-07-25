@@ -9,19 +9,19 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1><em>Western</em> Restaurants</h1>
+							<h1>Restaurants <em>You</em> Went</h1>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-
+	
 	<div id="fh5co-featured-menu" class="fh5co-section">
 		<div class="container">
 			<div class="row">
 				<% @restaurants.each do |restaurant| %>
-  				<% if restaurant.category == 2 %>
+  				<% if @visits.find_by(restaurant_id: restaurant.id) %>
   					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
   						<div class="fh5co-item animate-box">
   							<img src="assets/gallery_1.jpeg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
@@ -35,4 +35,6 @@
 				<% end %>
 			</div>
 		</div>
-	</div>
+	</div>	
+				
+
