@@ -108,8 +108,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=japanese.name%></a></h3>
-							<p><%=japanese.overview%></p>
-								<%= link_to "Show", restaurant_path(japanese[:id]), :method=>:get%>
+							<p><%= truncate(japanese.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(japanese[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -132,8 +132,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=western.name%></a></h3>
-							<p><%=western.overview%></p>
-								<%= link_to "Show", restaurant_path(western[:id]), :method=>:get%>
+							<p><%= truncate(western.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(western[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -156,8 +156,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=italian.name%></a></h3>
-							<p><%=italian.overview%></p>
-								<%= link_to "Show", restaurant_path(italian[:id]), :method=>:get%>
+							<p><%= truncate(italian.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(italian[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -180,8 +180,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=french.name%></a></h3>
-							<p><%=french.overview%></p>
-								<%= link_to "Show", restaurant_path(french[:id]), :method=>:get%>
+							<p><%= truncate(french.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(french[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -204,8 +204,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=chinese.name%></a></h3>
-							<p><%=chinese.overview%></p>
-								<%= link_to "Show", restaurant_path(chinese[:id]), :method=>:get%>
+							<p><%= truncate(chinese.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(chinese[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -228,8 +228,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=others.name%></a></h3>
-							<p><%=others.overview%></p>
-								<%= link_to "Show", restaurant_path(others[:id]), :method=>:get%>
+							<p><%= truncate(others.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(others[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
