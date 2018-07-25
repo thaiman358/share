@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/restaurants/french', to:'restaurants#french'
   get '/restaurants/chinese', to:'restaurants#chinese'
   get '/restaurants/others', to:'restaurants#others'
+  get 'logout' => 'sessions#destroy'
   resources:restaurants
   resources:forms
   resources:visits
