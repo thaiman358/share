@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180725061745) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "industry"
-    t.integer "type"
+    t.integer "arttype"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20180725061745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|

@@ -12,6 +12,10 @@ class FormsController < ApplicationController
     end
     Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
     Read.create(user_id: current_user.id, article_id: @article.id)
+    #Google map API表示
+    @latitude = @restaurant.latitude
+    @longitude = @restaurant.longitude
+    @address = @restaurant.address
   end
 
   def new
