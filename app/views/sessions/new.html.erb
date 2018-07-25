@@ -19,14 +19,23 @@
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
 						<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-            
-                  <%= f.label :email %>
-                  <%= f.email_field :email %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+                  					<%= f.label :email %>
+                  					<%= f.email_field :email, class:"form-control"  %>
+								</div>
+							</div>
 
-                  <%= f.label :password %>
-                  <%= f.password_field :password %>
+				      		<div class="row form-group">
+								<div class="col-md-12">
+			                		<%= f.label :password %>
+                  					<%= f.password_field :password, class:"form-control"  %>
+								</div>
+							</div>
 
-						      <%= f.submit "Log in" %>
+							
+
+						      <%= f.submit "Log in", class:"btn btn-primary btn-outline btn-lg"  %>
 						
 						<% end %>
 					</div>
