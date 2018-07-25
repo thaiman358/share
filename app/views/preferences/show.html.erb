@@ -5,27 +5,25 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Ask Client's Preference</h1>
+							<h1>Client's Preference</h1>
 							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</header>
+</header>
 	<div id="fh5co-about" class="fh5co-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
-                       <%= form_with(model:@preference, local: true) do |f| %>
-                         <%= f.label :"Client's email" %>
-                         <%= f.email_field :email %>
+					
+                         <p>email</p>
+                         <p><%= @preference.email%></p>
 
-                         <%= f.hidden_field :preference %>
-                     
-                         <%= f.submit "send" %>
-                       <% end %>
+                         <p>preference </p>
+                         <p><%= @preference.preference %></p>
 
 					</div>
 				</div>
