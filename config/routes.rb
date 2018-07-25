@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/restaurants/others', to:'restaurants#others'
   resources:restaurants
   resources:forms
-  resources:visiteds
+  resources:visits
   resources:favorites
-  resources:articles
+  resources:reads
   resources:ownprefers
   resources:preferences
   resources :users
