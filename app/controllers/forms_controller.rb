@@ -15,7 +15,7 @@ class FormsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.first
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
   end
 
   def create
