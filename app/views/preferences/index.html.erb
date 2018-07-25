@@ -53,6 +53,7 @@
 					<% @otherpreference.each do |others|%>
 						<h3><%= others.email%></h3>
 						<p><%= others.preference%></p>
+						<p><%= link_to "edit", edit_preference_path(others.id) %><p>
 					<% end %>
 					</div>
 				</div>

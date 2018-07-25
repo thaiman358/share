@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180724051521) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "industry"
-    t.integer "arttype"
+    t.integer "type"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
