@@ -5,7 +5,7 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Log in</h1>
+							<h1>Ask Client's Preference</h1>
 							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
 						</div>
 					</div>
@@ -18,26 +18,15 @@
 			<div class="row">
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
-						<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-				      		<div class="row form-group">
-								<div class="col-md-12">
-                  					<%= f.label :email %>
-                  					<%= f.email_field :email, class:"form-control"  %>
-								</div>
-							</div>
+                       <%= form_with(model:@preference, local: true) do |f| %>
+                         <%= f.hidden_field :email %>
 
-				      		<div class="row form-group">
-								<div class="col-md-12">
-			                		<%= f.label :password %>
-                  					<%= f.password_field :password, class:"form-control"  %>
-								</div>
-							</div>
+                         <%= f.label :"Answer Preference" %>
+                         <%= f.text_field :preference %>
+                     
+                         <%= f.submit "send" %>
+                       <% end %>
 
-							
-
-						      <%= f.submit "Log in", class:"btn btn-primary btn-outline btn-lg"  %>
-						
-						<% end %>
 					</div>
 				</div>
 			</div>
