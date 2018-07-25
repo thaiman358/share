@@ -1,2 +1,62 @@
-<h1>Forms#new</h1>
-<p>Find me in app/views/forms/new.html.erb</p>
+<div class="fh5co-loader"></div>
+    
+    <div id="page">
+
+    <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(assets/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="display-t js-fullheight">
+                        <div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+                            <h1><em>Reception </em> Information</h1>
+                            <!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
+      <%= form_tag(forms_path, :method => :get, id:"form-wrap") do %>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <label for="email">Client Email</label>
+              <%= label_tag :email %>
+              <%= email_field_tag :email %>
+              <%= hidden_field_tag :restaurant_id, @restaurant.id %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <%= label_tag :'Internal' %>
+            <%= radio_button_tag 'arttype', '1' %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <%= label_tag :'External / Firsttime' %>
+            <%= radio_button_tag 'arttype', '2' %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <%= label_tag :'External / 2~3 times' %>
+            <%= radio_button_tag 'arttype', '3' %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <%= label_tag :'External / Over 4 times' %>
+            <%= radio_button_tag 'arttype', '4' %>            
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <% restaurant_id = @restaurant.id %>
+            <%= submit_tag "Submmit" ,:class =>"btn btn-primary btn-outline btn-lg" %>
+          </div>
+        </div>
+      <% end %>
+    </div>            

@@ -2,7 +2,7 @@
   "name": "hakathon2018-kaisyoku",
   "private": true,
   "dependencies": {
-    "bootstrap": "3",
+    "bootstrap": "^4.1.2",
     "jquery": "^3.3.1"
   }
 }
