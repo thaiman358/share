@@ -23,6 +23,19 @@ class PreferencesController < ApplicationController
       @preference = Preference.find(params[:id])
     end
     
+    def edit
+      @preference = Preference.find(params[:id])
+    end
+    
+    def update
+        @preference = Preference.find(params[:id])
+      if @preference.update(preference_params)
+        #redirect_to blogs_path, notice: "ブログを編集しました！"
+      else
+        render 'edit'
+      end
+    end
+    
     private
     def preference_params
       params.require(:preference).permit(:email, :preference, :user_id)
