@@ -14,6 +14,7 @@ class Restaurant < ApplicationRecord
   # validates :price, presence: true
   # validates :address, presence: true
   
+  #住所から座標へ変換
   geocoded_by :address
   after_validation :geocode
 end
