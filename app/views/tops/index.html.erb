@@ -17,27 +17,82 @@
 		</div>
 	</header>
 
-<div id="fh5co-about" class="fh5co-section">
-	<div class="container">
-		<div class="row">
-			<% @restaurants.last(1).each do |restaurant| %>	
-				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
-				    <div class="section-heading">
-				        <h2>The Latest Restaurant</h2>
-					    <img src="assets/hero_1.jpeg" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+	<div id="fh5co-slider" class="fh5co-section animate-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<div class="fh5co-heading">
+						<h2>Latest Restaurants</h2>
+						<p>these restaurants are best for you!</p>
 					</div>
 				</div>
-				<div class="col-md-5 col-md-push-1 animate-box">
-					<div class="section-heading">
-						<h2><%= restaurant.name%></h2>
-						<p><%= restaurant.overview%></p>
-						<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get%>
-					</div>
+				<div class="col-md-6 col-md-push-1 animate-box">
+					<aside id="fh5co-slider-wrwap">
+					<div class="flexslider">
+						<ul class="slides">
+					   	<li style="background-image: url(assets/gallery_7.jpeg);">
+					   		<div class="overlay-gradient"></div>
+					   		<div class="container-fluid">
+					   			<div class="row">
+						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
+						   				<div class="slider-text-inner">
+						   					<div class="desc">
+						   						<% @restaurants.last(1).each do |restaurant| %>
+													<h2><%= restaurant.name%></h2>
+													<p><%= restaurant.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+													<!--<p><a href="restaurant_path(restaurant[:id])" class="btn btn-primary btn-outline">Learn More</a></p>-->
+												<%end%>
+						   					</div>
+						   				</div>
+						   			</div>
+						   		</div>
+					   		</div>
+					   	</li>
+					   	<li style="background-image: url(assets/gallery_6.jpeg);">
+					   		<div class="overlay-gradient"></div>
+					   		<div class="container-fluid">
+					   			<div class="row">
+						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
+						   				<div class="slider-text-inner">
+						   					<div class="desc">
+						   						<!--#最新行から2番目のみをもって来たい-->
+						   						<% @restaurants.last(2).each do |restaurant| %>
+													<h2><%= restaurant.name%></h2>
+													<p><%= restaurant.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
+						   					</div>
+						   				</div>
+						   			</div>
+						   		</div>
+					   		</div>
+					   	</li>
+					   	<li style="background-image: url(assets/gallery_5.jpeg);">
+					   		<div class="overlay-gradient"></div>
+					   		<div class="container-fluid">
+					   			<div class="row">
+						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
+						   				<div class="slider-text-inner">
+						   					<div class="desc">
+						   						<!--#最新行から3番目のみをもって来たい						   						-->
+						   						<% @restaurants.last(3).each do |restaurant| %>
+													<h2><%= restaurant.name%></h2>
+													<p><%= restaurant.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
+						   					</div>
+						   				</div>
+						   			</div>
+						   		</div>
+					   		</div>
+					   	</li>		   	
+					  	</ul>
+				  	</div>
+				</aside>
 				</div>
-			<%end%>
+			</div>
 		</div>
 	</div>
-</div>
+
 
 <div id="fh5co-blog" class="fh5co-section">
 	<div class="container">
@@ -53,8 +108,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=japanese.name%></a></h3>
-							<p><%=japanese.overview%></p>
-								<%= link_to "Show", restaurant_path(japanese[:id]), :method=>:get%>
+							<p><%= truncate(japanese.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(japanese[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -77,8 +132,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=western.name%></a></h3>
-							<p><%=western.overview%></p>
-								<%= link_to "Show", restaurant_path(western[:id]), :method=>:get%>
+							<p><%= truncate(western.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(western[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -101,8 +156,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=italian.name%></a></h3>
-							<p><%=italian.overview%></p>
-								<%= link_to "Show", restaurant_path(italian[:id]), :method=>:get%>
+							<p><%= truncate(italian.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(italian[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -125,8 +180,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=french.name%></a></h3>
-							<p><%=french.overview%></p>
-								<%= link_to "Show", restaurant_path(french[:id]), :method=>:get%>
+							<p><%= truncate(french.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(french[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -149,8 +204,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=chinese.name%></a></h3>
-							<p><%=chinese.overview%></p>
-								<%= link_to "Show", restaurant_path(chinese[:id]), :method=>:get%>
+							<p><%= truncate(chinese.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(chinese[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
@@ -173,8 +228,8 @@
 						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<h3><a><%=others.name%></a></h3>
-							<p><%=others.overview%></p>
-								<%= link_to "Show", restaurant_path(others[:id]), :method=>:get%>
+							<p><%= truncate(others.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(others[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 						</div> 
 					</div>
 				</div>
