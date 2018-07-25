@@ -7,7 +7,7 @@ class FormsController < ApplicationController
     @preference = Preference.where(email: params[:email]).find_by(user_id: current_user.id)
     if arttype == '2' then #社外＋初回は料理に関する記事を表示
       @article = Article.where(arttype: arttype, restaurant_id: @restaurant.id).last
-    else　#社内、社外の初回以外は事例・業界に関する記事を表示（1:事例、3:業界）
+    else
       @article = Article.where(arttype: arttype, industry: current_user.industry).last
     end
     Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
@@ -19,7 +19,7 @@ class FormsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.first
+    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
   end
 
   def create
