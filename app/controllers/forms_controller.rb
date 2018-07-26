@@ -12,6 +12,9 @@ class FormsController < ApplicationController
         else
           @article = Article.where(arttype: arttype, industry: current_user.industry).last
         end
+        if @article.blank? #該当記事が無かった場合、事例・業界記事の最新記事を表示
+          @article = Article.where.not(arttype: 2).last
+        end          
         Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id, client_name: @preference.client_name)
         Read.create(user_id: current_user.id, article_id: @article.id)
         #Google map API表示
@@ -23,7 +26,7 @@ class FormsController < ApplicationController
       end
     else
       @restaurant = Restaurant.find_by(id: params[:restaurant_id])
-      render 'new'
+      render 'new' #emailとarttypeが入力されていない場合、/forms/newへ戻す
     end
   end
 
