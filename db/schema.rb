@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20180726055555) do
     t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "client_name"
     t.index ["restaurant_id"], name: "index_visits_on_restaurant_id"
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
