@@ -6,10 +6,14 @@ class FavarticlesController < ApplicationController
   end
   
   def create
-    favarticle = current_user.favarticles.create(article_id: params[:article_id])
+    @favarticle = current_user.favarticles.create(article_id: params[:article_id])
+    if @favarticle.save
+      redirect_to reads_path
+    end
   end
 
   def destroy
     favarticle = current_user.favarticles.find_by(id: params[:id]).destroy
+    redirect_to reads_path      
   end
 end

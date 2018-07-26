@@ -22,26 +22,24 @@
 		<div class="container">
 			<div class="row">
 				<% @articles.each do |article| %>
-				<% if @reads.find_by(article_id: article.id) %>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
 						<div class="blog-text">
-							<h3><a href="#"><%= article.title %></a></h3>
+               			  <% if @reads.find_by(article_id: article.id) %>
+							<h3><a href="#">
+							<%= article.title %></a></h3>
 							<p><%= article.content %></p>
-							
-                               <% if @favarticle.present? %>
-                                  <%= button_to 'UnLike', favarticle_path(id: @favarticle.id), :method => :delete, class: 'btn btn-danger' %>
-                               <% else %>
-                                  <%= button_to 'Like', favarticles_path(article_id: article.id), :method => :post, class: 'btn btn-primary' %>
-                               <% end %>
-							
-							<ul class="stuff">
-								<!--<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>-->
-							</ul>
+						  
+						  <% @favarticle = current_user.favarticles.find_by(article_id: article.id)%>
+                          <% if @favarticle.present? %>
+                            <%= button_to 'UnLike', favarticle_path(id: @favarticle.id), :method => :delete, class: 'btn btn-danger' %>
+                          <% else %>
+                            <%= button_to 'Like', favarticles_path(article_id: article.id), :method => :post, class: 'btn btn-primary' %>
+                          <% end %>
+				          <% end %>							
 						</div> 
 					</div>
 				</div>
-				<% end %>
 				<% end %>
 			</div>
 		</div>
