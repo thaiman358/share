@@ -86,8 +86,10 @@
 									<h3 class="timeline-title">Your Preference</h3>
 								</div>
 								<div class="timeline-body">
-								      <%= @preference.preference)]%>
-									</p>
+   					              <% @prefer.each do |preference|%>
+						            <p><%= preference.preference%></p>
+						            <p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+			                	  <% end %>
 								</div>
 
 							</div>
