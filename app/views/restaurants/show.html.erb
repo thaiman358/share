@@ -1,3 +1,67 @@
+	<div class="fh5co-loader"></div>
+	<div id="page">
+
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(assets/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="display-t js-fullheight">
+						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+							<h1>PwC 食べログ</h1>
+							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="fh5co-slider" class="fh5co-section animate-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<div class="fh5co-heading">
+						<h2>Latest Restaurants</h2>
+						<p>these restaurants are best for you!</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-push-1 animate-box">
+					<aside id="fh5co-slider-wrwap">
+					<div class="flexslider">
+						<ul class="slides">
+						<!--画像変更しなくてはならない-->
+					   	<li style="background-image: image_tag @restaurant.image ;">
+					   		<div class="overlay-gradient"></div>
+					   		<div class="container-fluid">
+					   			<div class="row">
+						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
+						   				<div class="slider-text-inner">
+						   					<div class="desc">
+												<h2><%= @restaurant.name%></h2>
+												<p><%= @restaurant.overview%></p>
+												<%#= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+												<!--<p><a href="restaurant_path(restaurant[:id])" class="btn btn-primary btn-outline">Learn More</a></p>-->
+						   					</div>
+						   				</div>
+						   			</div>
+						   		</div>
+					   		</div>
+					   	</li>
+					  	</ul>
+				  	</div>
+				</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+<p><%= image_tag @restaurant.image, :class => "img-responsive" %></p>
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.category %></p>
 <p><%= @restaurant.overview %></p>
@@ -5,6 +69,7 @@
 <p><%= @restaurant.hour %></p>
 <p><%= @restaurant.price %></p>
 <p><%= @restaurant.address %></p>
+
 <%= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
 <% if @favorite.present? %>
     <%= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
