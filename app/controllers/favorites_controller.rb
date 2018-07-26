@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @user = current_user
     @favs = @user.fav_restaurants
-    @fav = current_user.favrestaurants.find_by(restaurant_id: @favs.ids)
+    @fav = current_user.favs.find_by(restaurant_id: @favs.ids)
   end
   
   def create
