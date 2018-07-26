@@ -8,8 +8,7 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Read the articles</h1>
-							<h2><%= link_to "Your Likes", favarticles_path %></h2>
+							<h1>Your Likes</h1>
 							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
 						</div>
 					</div>
@@ -18,8 +17,7 @@
 		</div>
 	</header>
 	<div class="row">
-		<% @articles.each do |article| %>
-			<% if @reads.find_by(article_id: article.id) %>
+		<% @fav_articles.each do |article| %>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
 						<div class="blog-text">
@@ -39,7 +37,6 @@
 						</div> 
 					</div>
 				</div>
-			<% end %>
 		<% end %>
 	</div>
 </div>

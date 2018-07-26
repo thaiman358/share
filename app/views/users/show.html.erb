@@ -32,7 +32,6 @@
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">Handle Name</h3>
-								
 								</div>
 								<div class="timeline-body">
 									<p><%= @user.name%></p>
@@ -91,7 +90,18 @@
 						            <p><%= link_to "edit", edit_preference_path(preference.id) %><p>
 			                	  <% end %>
 								</div>
-
+							</div>
+						</li>
+						
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge"><i class="icon-genius"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">Liked Articles</h3>
+								</div>
+								<div class="timeline-body">
+								<%= link_to "Click to Look!", favarticles_path %>
+								</div>
 							</div>
 						</li>
 
