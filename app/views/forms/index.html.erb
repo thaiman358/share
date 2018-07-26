@@ -81,14 +81,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 fh5co-heading animate-box">
-
-                            <h1>Client Infomation</h1>
-                            <br>
-                            <h2>Preference<%= @preference.preference %></h2>
-                            <h2>Unpreference<%= @preference.unpreference %></h2>
-                            <h1>Article</h1>
-                            <h2><%= @article.title %></h2>
-                            <h2><%= @article.content %></h2>
+                          
+                          <h2>Client Infomation</h2>
+                          <ul>
+                            <li><h2>Preference : <%= @preference.preference %></h2></li>
+                            <li><h2>Unpreference : <%= @preference.unpreference %></h2></li>
+                          </ul>
+                          <h2>Article</h2>
+                          <ul>
+                            <li><h2>Title : <%= @article.title %></h2>
+                            <li><h2>Content : <%= @article.content %></h2>
+                          </ul>
   				</div>
 			</div>
 		</div>
