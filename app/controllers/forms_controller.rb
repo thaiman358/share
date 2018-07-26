@@ -22,7 +22,6 @@ class FormsController < ApplicationController
         redirect_to new_preference_path, notice: "Please ask #{params[:email]}'s food preferences!"
       end
     else
-      # @back_params = params #newで入力した値を代入
       @restaurant = Restaurant.find_by(id: params[:restaurant_id])
       render 'new'
     end
