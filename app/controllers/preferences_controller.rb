@@ -45,3 +45,4 @@ class PreferencesController < ApplicationController
       params.require(:preference).permit(:email, :preference, :unpreference,:user_i, :user_name, :client_name)
     end
 end
+

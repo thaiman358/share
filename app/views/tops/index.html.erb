@@ -57,7 +57,7 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から2番目のみをもって来たい-->
-						   						<% @restaurants.last(2).each do |restaurant| %>
+						   						<% @restaurants.last(2) do |restaurant| %>
 													<h2><%= restaurant.name%></h2>
 													<p><%= restaurant.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
