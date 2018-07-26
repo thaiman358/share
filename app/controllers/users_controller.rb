@@ -16,6 +16,7 @@ class UsersController < ApplicationController
         
     def show
       @user = User.find(params[:id])
+      @preference = Preference.where(email: current_user.email)
     end
 
     private
