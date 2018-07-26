@@ -24,7 +24,7 @@
 					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 						<div class="fh5co-item animate-box">
 							<img src="assets/gallery_1.jpeg" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-							<h3><%= restaurant.name %></h3>
+							<h3><%= truncate(restaurant.name, length:10) %></h3>
 							<span class="fh5co-price">
 								<% category = 0 %>
 								<% case restaurant.category %>
@@ -42,8 +42,9 @@
 									<%= "その他" %>
 								<% end %>
 							</span>
-							<p><%= restaurant.overview %></p>
-								<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get%>
+							<p><%= truncate(restaurant.overview, length:50) %></p>
+							<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+							<br>
 						</div>
 					</div>
 				<% end %>

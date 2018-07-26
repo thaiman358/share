@@ -24,7 +24,7 @@
 				<div class="col-md-12 col-md-offset-0">
 					<ul class="timeline animate-box">
 						<li class="timeline-heading text-center animate-box">
-							<div><h3><%= button_to "Logout", session_path(current_user.id), :method=>:delete, :class=>:destroy %></h3></div>
+							<div><h3><%#= button_to "Logout", session_path(current_user.id), :method => :delete, :class =>:destroy %></h3></div>
 							<div><h3>about yourself</h3></div>
 						</li>
 						<li class="animate-box timeline-unverted">
@@ -83,8 +83,15 @@
 							<div class="timeline-badge"><i class="icon-genius"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title"><%= link_to "Preference List", preferences_path%></h3>
+									<h3 class="timeline-title">Your Preference</h3>
 								</div>
+								<div class="timeline-body">
+   					              <% @prefer.each do |preference|%>
+						            <p><%= preference.preference%></p>
+						            <p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+			                	  <% end %>
+								</div>
+
 							</div>
 						</li>
 
