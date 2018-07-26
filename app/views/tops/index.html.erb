@@ -37,7 +37,7 @@
 						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
-						   						<% @restaurants.last(1).each do |restaurant| %>
+						   						<% @restaurants1.each do |restaurant| %>
 													<h2><%= restaurant.name%></h2>
 													<p><%= restaurant.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
@@ -57,7 +57,7 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から2番目のみをもって来たい-->
-						   						<% @restaurants.last(2) do |restaurant| %>
+						   						<% @restaurants2 do |restaurant| %>
 													<h2><%= restaurant.name%></h2>
 													<p><%= restaurant.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
@@ -75,7 +75,7 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から3番目のみをもって来たい						   						-->
-						   						<% @restaurants.last(3).each do |restaurant| %>
+						   						<% @restaurants3.each do |restaurant| %>
 													<h2><%= restaurant.name%></h2>
 													<p><%= restaurant.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
