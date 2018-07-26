@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
-  def index    
+  def index
     @restaurants = Restaurant.all
     @visits = Visit.where(user_id: current_user.id)
   end

@@ -12,7 +12,7 @@ class FormsController < ApplicationController
         else
           @article = Article.where(arttype: arttype, industry: current_user.industry).last
         end
-        Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
+        Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id, client_name: @preference.client_name)
         Read.create(user_id: current_user.id, article_id: @article.id)
         #Google map API表示
         @latitude = @restaurant.latitude
