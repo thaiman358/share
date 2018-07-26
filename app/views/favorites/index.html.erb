@@ -35,6 +35,7 @@
 								<% choices = ["和食","洋食","イタリアン","フレンチ","中華","その他"]%>
 								<li><i class="icon-heart2"></i><%= choices[(fav.category-1)] %></li>
 								<li><i class="icon-eye2"></i><%= fav.price %></li>
+								<%= link_to "Show", restaurant_path(@fav.restaurant_id), :method=>:get, class:"btn btn-primary btn-outline"%>
 	                               <% if @fav.present? %>
     	                              <%= button_to 'UnLike', favorite_path(id: @fav.id), :method => :delete, class: 'btn btn-danger' %>
         	                       <% else %>

@@ -8,14 +8,14 @@ class FavoritesController < ApplicationController
   def create
     @fav = current_user.favs.create(restaurant_id: params[:restaurant_id])
     if @fav.save
-      redirect_to restaurant_path(params[:restaurant_id])      
+      redirect_to favorites_path
     end
   end
 
   def destroy
     @fav = current_user.favs.find_by(id: params[:id]).destroy
     if @fav.save
-      redirect_to restaurant_path(params[:restaurant_id])
+      redirect_to favorites_path
     end
   end
 end
