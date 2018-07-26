@@ -20,30 +20,34 @@
 
 
 	<div id="fh5co-blog" class="fh5co-section">
+		<div class="container">
 			<div class="row">
+				<% @favs.each do |fav| %>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(<%= fav.image %>);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-	                      	<% @favs.each do |fav| %>							
 							<h3><a href="#"><%= fav.name %></a></h3>
 							<p><%= fav.overview %></p>
 							<p><%= fav.address %></p>
 							<ul class="stuff">
-							<% choices = ["和食","洋食","イタリアン","フレンチ","中華","その他"]%>
+								<% choices = ["和食","洋食","イタリアン","フレンチ","中華","その他"]%>
 								<li><i class="icon-heart2"></i><%= choices[(fav.category-1)] %></li>
 								<li><i class="icon-eye2"></i><%= fav.price %></li>
-                               <% if @fav.present? %>
-                                  <%= button_to 'UnLike', favorite_path(id: @fav.id), :method => :delete, class: 'btn btn-danger' %>
-                               <% else %>
-                                  <%= button_to 'Like', favorites_path(restaurant_id: fav.id), :method => :post, class: 'btn btn-primary' %>
-                               <% end %>
+	                               <% if @fav.present? %>
+    	                              <%= button_to 'UnLike', favorite_path(id: @fav.id), :method => :delete, class: 'btn btn-danger' %>
+        	                       <% else %>
+            	                      <%= button_to 'Like', favorites_path(restaurant_id: fav.id), :method => :post, class: 'btn btn-primary' %>
+                	               <% end %>
+
 							</ul>
 						</div> 
 					</div>
 				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
-<% end %>
+
+
