@@ -1803,3 +1803,7 @@ textarea {
   height: 200px;
   width: 250px;
 }
+
+#preference_content{
+  color: white;
+}
