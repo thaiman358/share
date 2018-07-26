@@ -10,8 +10,7 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<h1>Your Favorites</h1>
-							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
+							<h1>Liked Restaurant</h1>
 						</div>
 					</div>
 				</div>
@@ -21,59 +20,25 @@
 
 
 	<div id="fh5co-blog" class="fh5co-section">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-12 fh5co-heading animate-box">
-					<h2>List the restaurants</h2>
-					<div class="row">
-						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis. Ad magni perspiciatis, voluptatum repellat.</p>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
 						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
 						<div class="blog-text">
 							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Deloitte Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	                      	<% @favs.each do |fav| %>							
+							<h3><a href="#"><%= fav.name %></a></h3>
+							<p><%= fav.overview %></p>
+							<p><%= fav.address %></p>
 							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_2.jpeg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">KPMG Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(assets/gallery_3.jpeg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">EY Restaurant</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><i class="icon-heart2"></i>1.2K</li>
-								<li><i class="icon-eye2"></i>2K</li>
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							<% choices = ["和食","洋食","イタリアン","フレンチ","中華","その他"]%>
+								<li><i class="icon-heart2"></i><%= choices[(fav.category-1)] %></li>
+								<li><i class="icon-eye2"></i><%= fav.price %></li>
+                               <% if @fav.present? %>
+                                  <%= button_to 'UnLike', favorite_path(id: @fav.id), :method => :delete, class: 'btn btn-danger' %>
+                               <% else %>
+                                  <%= button_to 'Like', favorites_path(restaurant_id: fav.id), :method => :post, class: 'btn btn-primary' %>
+                               <% end %>
 							</ul>
 						</div> 
 					</div>
@@ -81,4 +46,4 @@
 			</div>
 		</div>
 	</div>
-
+<% end %>
