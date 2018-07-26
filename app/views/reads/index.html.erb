@@ -25,6 +25,13 @@
 							<!--<span class="posted_on">article.</span>-->
 							<h3><a href="#"><%= article.title %></a></h3>
 							<p><%= article.content %></p>
+							
+                               <% if @favarticle.present? %>
+                                  <%= button_to 'UnLike', favarticle_path(id: @favarticle.id), :method => :delete, class: 'btn btn-danger' %>
+                               <% else %>
+                                  <%= button_to 'Like', favarticles_path(article_id: article.id), :method => :post, class: 'btn btn-primary' %>
+                               <% end %>
+							
 							<ul class="stuff">
 								<!--<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>-->
 							</ul>
