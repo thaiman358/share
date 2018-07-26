@@ -1,5 +1,6 @@
 class PreferencesController < ApplicationController
     User = Struct.new(:name, :email)
+    
     def index
         @preference = Preference.where(email: current_user.email)
         @otherpreference = Preference.where(user_id: current_user.id).where.not(email: current_user.email)

@@ -71,3 +71,8 @@
 <p><%= @restaurant.address %></p>
 
 <%= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+<% if @favorite.present? %>
+    <%= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+    <%= button_to 'Like', favorites_path(restaurant_id: @restaurant.id), method: :post, class: 'btn btn-primary' %>
+<% end %>
