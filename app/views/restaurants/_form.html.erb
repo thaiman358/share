@@ -22,44 +22,72 @@
 		<div class="row">
 			<div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
 				<%= form_for(@restaurant) do |f| %>
-					<div class="field">
-  					<%= f.label :name %>
-  					<%= f.text_field :name, id: :restaurant_name %>
+				
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :name %>
+  							<%= f.text_field :name, id: :restaurant_name, class:"form-control" %>
+            			</div>
+            		</div>
+
+				    <div class="row form-group">
+						<div class="col-md-12">
+			   				<% choices = [["和食", 1], ["洋食", 2], ["イタリアン", 3], ["フレンチ", 4], ["中華", 5], ["その他", 6]]%>            
+				            <%= f.label :category %>
+            				<%= f.select :category, choices, {}, {class: 'form-control'}   %>
+						</div>
 					</div>
-  				<div class="field">
-  					<% choices = [["和食", 1], ["洋食", 2], ["イタリアン", 3], ["フレンチ", 4], ["中華", 5], ["その他", 6]]%>            
-            <%= f.label :category %>
-            <%= f.select :category, choices, :prompt => "選択してください"  %>
-					</div>
-					<div class="field">
-  					<%= f.label :overview %>
-  					<%= f.text_field :overview, id: :restaurant_overview %>
-					</div>
-					<div class="field">
-  					<%= f.label :tel %>
-  					<%= f.text_field :tel, id: :restaurant_tel %>
-					</div>
-					<div class="field">
-  					<%= f.label :hour %>
-  					<%= f.text_field :hour, id: :restaurant_hour %>
-					</div>
-					<div class="field">
-  					<%= f.label :price %>
-  					<%= f.text_field :price, id: :restaurant_price %>
-					</div>
-					<div class="field">
-  					<%= f.label :address %>
-  					<%= f.text_field :address, id: :restaurant_address %>
-					</div>
-					<div class="field">
-  					<%= f.label :image %>
-  					<!-- アップロードした画像を表示させるための記述 -->
-  					<%= image_tag(@restaurant.image.url) if @restaurant.image.url %>
-  					<%= f.file_field :image, id: :restaurant_image %>
-					</div>
-					<div class="actions">
-  					<%= f.submit %>
-					</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :overview %>
+  							<%= f.text_field :overview, id: :restaurant_overview, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :tel %>
+  							<%= f.text_field :tel, id: :restaurant_tel, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :hour %>
+  							<%= f.text_field :hour, id: :restaurant_hour, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :price %>
+  							<%= f.text_field :price, id: :restaurant_price, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :address %>
+  							<%= f.text_field :address, id: :restaurant_address, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+		  					<%= f.label :image %>
+  							<!-- アップロードした画像を表示させるための記述 -->
+  							<%= image_tag(@restaurant.image.url) if @restaurant.image.url %>
+  							<%= f.file_field :image, id: :restaurant_image, class:"form-control"  %>
+            			</div>
+            		</div>
+
+					<div class="row form-group">
+                    	<div class="col-md-12">
+  							<%= f.submit "Resister", class:"btn btn-primary btn-outline btn-lg" %>
+  						</div>
+            		</div>
+
 				<% end %>
 			</div>
 		</div>
