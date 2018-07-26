@@ -1,4 +1,4 @@
-	<div class="fh5co-loader"></div>
+<div class="fh5co-loader"></div>
 	
 	<div id="page">
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(assets/hero_1.jpeg);" data-stellar-background-ratio="0.5">
@@ -16,23 +16,24 @@
 			</div>
 		</div>
 	</header>
-	<div class="row">
-		<% @articles.each do |article| %>
-			<% if @reads.find_by(article_id: article.id) %>
+	
+	<div id="fh5co-blog" class="fh5co-section">
+		<div class="container">
+			<div class="row">
+				<% @articles.each do |article| %>
+				<% if @reads.find_by(article_id: article.id) %>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
 						<div class="blog-text">
-							<!--<span class="posted_on">article.</span>-->
 							<h3><a href="#"><%= article.title %></a></h3>
 							<p><%= article.content %></p>
-							<ul class="stuff">
-								<!--<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>-->
-							</ul>
 						</div> 
 					</div>
 				</div>
-			<% end %>
-		<% end %>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 </div>
