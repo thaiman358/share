@@ -1797,3 +1797,9 @@ textarea {
 #restaurant_overwiew{
   height: 100px;
 }
+
+/*画像大きさ変更*/
+.img-responsive{
+  height: 200px;
+  width: 250px;
+}
