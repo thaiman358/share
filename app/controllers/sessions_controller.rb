@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    puts "========================"
+    # puts "========================"
     session.delete(:user_id)
     redirect_to tops_path
   end

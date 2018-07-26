@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources:restaurants
   resources:forms
   resources:visits
-  resources:favorites
+  resources:favorites, only: [:index, :create, :destroy]
   resources:reads
   resources:ownprefers
   resources:preferences

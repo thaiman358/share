@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :favs, dependent: :destroy
+  has_many :fav_restaurants, through: :favs, source: :restaurant
   has_many :visits, dependent: :destroy
   has_many :reads, dependent: :destroy
   has_many :preferences, dependent: :destroy
