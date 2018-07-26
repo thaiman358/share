@@ -37,12 +37,12 @@
 						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
-						   						<% @restaurants1.each do |restaurant| %>
-													<h2><%= restaurant.name%></h2>
-													<p><%= restaurant.overview%></p>
-													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+						   						<% @restaurants1.each do |restaurant1| %>
+													<h2><%= restaurant1.name%></h2>
+													<p><%= restaurant1.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant1[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+													<%end%>
 													<!--<p><a href="restaurant_path(restaurant[:id])" class="btn btn-primary btn-outline">Learn More</a></p>-->
-												<%end%>
 						   					</div>
 						   				</div>
 						   			</div>
@@ -57,10 +57,11 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から2番目のみをもって来たい-->
-						   						<% @restaurants2 do |restaurant| %>
-													<h2><%= restaurant.name%></h2>
-													<p><%= restaurant.overview%></p>
-													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
+													<% @restaurants2.each do |restaurant2| %>
+													<h2><%= restaurant2.name%></h2>
+													<p><%= restaurant2.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant2[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+						   						<%end%>
 						   					</div>
 						   				</div>
 						   			</div>
@@ -75,10 +76,11 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から3番目のみをもって来たい						   						-->
-						   						<% @restaurants3.each do |restaurant| %>
-													<h2><%= restaurant.name%></h2>
-													<p><%= restaurant.overview%></p>
-													<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>												<%end%>
+													<% @restaurants3.each do |restaurant3| %>
+													<h2><%= restaurant3.name%></h2>
+													<p><%= restaurant3.overview%></p>
+													<%= link_to "Show", restaurant_path(restaurant3[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+						   						<%end%>
 						   					</div>
 						   				</div>
 						   			</div>
