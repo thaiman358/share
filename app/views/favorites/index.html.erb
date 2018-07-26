@@ -30,8 +30,7 @@
 							<span class="posted_on">Feb. 15th 2016</span>
 							<h3><a href="#"><%= fav.name %></a></h3>
 							<p><%= fav.overview %></p>
-							<p><%= fav.address %></p>
-							<ul class="stuff">
+							<p><ul class="stuff">
 								<% choices = ["和食","洋食","イタリアン","フレンチ","中華","その他"]%>
 								<li><i class="icon-heart2"></i><%= choices[(fav.category-1)] %></li>
 								<li><i class="icon-eye2"></i><%= fav.price %></li>
@@ -42,7 +41,7 @@
             	                      <%= button_to 'Like', favorites_path(restaurant_id: fav.id), :method => :post, class: 'btn btn-primary' %>
                 	               <% end %>
 
-							</ul>
+							</ul></p>
 						</div> 
 					</div>
 				</div>
