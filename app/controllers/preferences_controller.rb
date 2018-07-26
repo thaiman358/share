@@ -14,8 +14,11 @@ class PreferencesController < ApplicationController
         #@preference.email = current_user.email
         @preference.user_id = current_user.id
         if @preference.save
-          user = User.new("name", @preference.email)
-          PostMailer.post_email(user, @preference).deliver
+          if @preference.email == current_user.email
+          else              
+            user = User.new("name", @preference.email)
+            PostMailer.post_email(user, @preference).deliver
+          end
           redirect_to preferences_path
         else
             render 'new'
