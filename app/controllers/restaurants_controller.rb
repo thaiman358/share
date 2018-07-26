@@ -1,11 +1,14 @@
 class RestaurantsController < ApplicationController
   # before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:new]
+  
   def new
     @restaurant = Restaurant.new
   end
   
   def show
     @restaurant = Restaurant.find(params[:id])
+    @favorite = current_user.favs.find_by(restaurant_id: @restaurant.id)
   end
   
   def create
@@ -48,6 +51,13 @@ class RestaurantsController < ApplicationController
     def restaurant_params
       params.require(:restaurant).permit(:name, :category, :overview, :hour, :tel, :price,:address, :image)
     end
+    
+    def login_check
+      unless current_user
+        redirect_to new_session_path
+      end
+    end
+
     # def set_restaurant
     # 　@restaurant = Restaurant.find(params[:id])
     # end

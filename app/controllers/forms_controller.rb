@@ -1,43 +1,36 @@
 class FormsController < ApplicationController
   protect_from_forgery :except => [:destroy]
-  before_action :check_login, only: [:new, :show, :edit, :update, :destroy]
+  before_action :check_login, only: [:index, :new]
   def index
-    arttype = params[:arttype]
-    @restaurant = Restaurant.find_by(id: params[:restaurant_id])
-    @preference = Preference.where(email: params[:email]).find_by(user_id: current_user.id)
-    if arttype == '2' then #社外＋初回は料理に関する記事を表示
-      @article = Article.where(arttype: arttype, restaurant_id: @restaurant.id).last
+    if params[:email] && params[:arttype] #emailとarttypeが入力されているかチェック
+      if Preference.where(email: params[:email]).find_by(user_id: current_user.id)  #会食相手の好みが登録されているかチェック
+        arttype = params[:arttype]
+        @restaurant = Restaurant.find_by(id: params[:restaurant_id])
+        @preference = Preference.where(email: params[:email]).find_by(user_id: current_user.id)
+        if arttype == '2' #社外＋初回は料理に関する記事を表示
+          @article = Article.where(arttype: arttype, restaurant_id: @restaurant.id).last
+        else
+          @article = Article.where(arttype: arttype, industry: current_user.industry).last
+        end
+        Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
+        Read.create(user_id: current_user.id, article_id: @article.id)
+        #Google map API表示
+        @latitude = @restaurant.latitude
+        @longitude = @restaurant.longitude
+        @address = @restaurant.address
+      else #会食相手の好みが登録されていない場合/preference/newへ飛ばす
+        redirect_to new_preference_path, notice: "Please ask #{params[:email]}'s food preferences!"
+      end
     else
-      @article = Article.where(arttype: arttype, industry: current_user.industry).last
+      @restaurant = Restaurant.find_by(id: params[:restaurant_id])
+      render 'new'
     end
-    Visit.create(user_id: current_user.id, restaurant_id: @restaurant.id)
-    Read.create(user_id: current_user.id, article_id: @article.id)
   end
 
   def new
     @restaurant = Restaurant.find_by(id: params[:restaurant_id])
   end
 
-  def create
-    
-  end
-
-  def show
-    
-  end
-
-  def confirm
-    
-  end
-
-  def edit
-    
-  end
-  
-  def reserve
-    
-  end
-  
   private
   def check_login
     if not logged_in?

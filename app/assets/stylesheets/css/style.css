@@ -471,11 +471,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
-  margin-bottom: 170px;
+  /*margin-bottom: 170px;*/
 }
 @media screen and (max-width: 768px) {
   #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
   }
 }
 #fh5co-featured-menu .fh5co-heading h2, #fh5co-gallery .fh5co-heading h2, #fh5co-reservation-form .fh5co-heading h2 {
@@ -549,11 +549,11 @@ h1, h2, h3, h4, h5, h6, figure {
   border: none !important;
 }
 #fh5co-featured-testimony .fh5co-heading {
-  margin-bottom: 170px;
+  /*margin-bottom: 170px;*/
 }
 @media screen and (max-width: 768px) {
   #fh5co-featured-testimony .fh5co-heading {
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
   }
 }
 #fh5co-featured-testimony .fh5co-heading h2 {
@@ -1027,11 +1027,11 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {
-  margin-bottom: 170px;
+  /*margin-bottom: 170px;*/
 }
 @media screen and (max-width: 768px) {
   #fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
   }
 }
 #fh5co-blog .fh5co-heading h2, #fh5co-contact .fh5co-heading h2 {
@@ -1042,7 +1042,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-blog {
   width: 100%;
   float: left;
-  margin-bottom: 40px;
+  /*margin-bottom: 40px;*/
 }
 @media screen and (max-width: 768px) {
   .fh5co-blog {
@@ -1064,10 +1064,10 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-blog .blog-text {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   position: relative;
   width: 100%;
-  padding: 30px;
+  padding: 10px;
   float: left;
   background: rgba(255, 255, 255, 0.03);
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
@@ -1079,7 +1079,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-blog .blog-text span {
   display: inline-block;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   font-size: 14px !important;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -1087,7 +1087,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0;
   padding: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding-top: 20px;
+  /*padding-top: 20px;*/
 }
 .fh5co-blog .blog-text .stuff li {
   list-style: none;
@@ -1113,9 +1113,16 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 14px;
   padding-right: 5px;
 }
+
+/*==追加====*/
+.blog-text p{
+  height: 100px;
+}
+/*==追加====*/
+
 .fh5co-blog .blog-text h3 {
   font-size: 24px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   line-height: 1.5;
 }
 .fh5co-blog .blog-text h3 a {
@@ -1733,7 +1740,7 @@ h1, h2, h3, h4, h5, h6, figure {
   height: 54px;
   font-size: 20px;
   font-weight: 300;
-  font-family: "Satisfy", cursive;
+  font-family: "arial", cursive;
   color: #fff;
 }
 .form-control:active, .form-control:focus {
@@ -1789,4 +1796,10 @@ textarea {
 
 #restaurant_overwiew{
   height: 100px;
+}
+
+/*画像大きさ変更*/
+.img-responsive{
+  height: 200px;
+  width: 250px;
 }

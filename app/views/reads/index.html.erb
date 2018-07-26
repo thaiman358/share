@@ -1,4 +1,4 @@
-	<div class="fh5co-loader"></div>
+<div class="fh5co-loader"></div>
 	
 	<div id="page">
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(assets/hero_1.jpeg);" data-stellar-background-ratio="0.5">
@@ -9,6 +9,7 @@
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<h1>Read the articles</h1>
+							<h2><%= link_to "Your Likes", favarticles_path %></h2>
 							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
 						</div>
 					</div>
@@ -16,23 +17,32 @@
 			</div>
 		</div>
 	</header>
-	<div class="row">
-		<% @articles.each do |article| %>
-			<% if @reads.find_by(article_id: article.id) %>
+	
+	<div id="fh5co-blog" class="fh5co-section">
+		<div class="container">
+			<div class="row">
+				<% @articles.each do |article| %>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
 						<div class="blog-text">
-							<!--<span class="posted_on">article.</span>-->
-							<h3><a href="#"><%= article.title %></a></h3>
+               			  <% if @reads.find_by(article_id: article.id) %>
+							<h3><a href="#">
+							<%= article.title %></a></h3>
 							<p><%= article.content %></p>
-							<ul class="stuff">
-								<!--<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>-->
-							</ul>
+						  
+						  <% @favarticle = current_user.favarticles.find_by(article_id: article.id)%>
+                          <% if @favarticle.present? %>
+                            <%= button_to 'UnLike', favarticle_path(id: @favarticle.id), :method => :delete, class: 'btn btn-danger' %>
+                          <% else %>
+                            <%= button_to 'Like', favarticles_path(article_id: article.id), :method => :post, class: 'btn btn-primary' %>
+                          <% end %>
+				          <% end %>							
 						</div> 
 					</div>
 				</div>
-			<% end %>
-		<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 </div>
