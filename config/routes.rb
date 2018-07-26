@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources:preferences
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :favarticles, only: [:create, :destroy]
+  resources :favarticles, only: [:index, :create, :destroy]
 end
