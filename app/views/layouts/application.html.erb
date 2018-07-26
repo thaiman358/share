@@ -78,15 +78,17 @@
 									<li><a href="/restaurants/french">French</a></li>
 									<li><a href="/restaurants/chinese">Chinese</a></li>
 									<li><a href="/restaurants/others">Others</a></li>
+						  <% if logged_in? %>
 									<li>===========</li>
 									<li><a href="/visits">Visited</a></li>
 									<li><a href="/favorites">Favorites</a></li>
+                          <% end %>
 								</ul>
 							</li>
+						  <% if logged_in? %>
 							<li><a href="/reads">Articles</a></li>
 							<li><a href="/preferences">Preference Share</a></li>							
-							<li><a href="/restaurants/new">New Restaurants</a></li>
-						  <% if logged_in? %>
+							<li><a href="/restaurants/new">New Restaurants</a></li>						  
 							<li><%= link_to "Mypage", user_path(current_user.id) %></li>
 						  <% else %>
 						    <li><%= link_to "Sign up", new_user_path %></li>
