@@ -24,7 +24,7 @@
           <div class="col-md-12">
             <label for="email">Client Email</label>
               <%= label_tag :email %>
-              <%= email_field_tag :email %>
+              <%= email_field_tag :email, '', class:"form-control" %>
               <%= hidden_field_tag :restaurant_id, @restaurant.id %>
           </div>
         </div>
