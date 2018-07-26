@@ -30,19 +30,21 @@
 					<aside id="fh5co-slider-wrwap">
 					<div class="flexslider">
 						<ul class="slides">
+							
 						<!--画像変更しなくてはならない-->
-					   	<li style="background-image: url(assets/gallery_7.jpeg);">
+						<% @restaurants1.each do |restaurant1| %>
+					   	<li style="background-image: url(<%= restaurant1.image %>);">
 					   		<div class="overlay-gradient"></div>
 					   		<div class="container-fluid">
 					   			<div class="row">
 						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
-						   						<% @restaurants1.each do |restaurant1| %>
+						   						
 													<h2><%= restaurant1.name%></h2>
 													<p><%= restaurant1.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant1[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-													<%end%>
+													
 													<!--<p><a href="restaurant_path(restaurant[:id])" class="btn btn-primary btn-outline">Learn More</a></p>-->
 						   					</div>
 						   				</div>
@@ -50,7 +52,10 @@
 						   		</div>
 					   		</div>
 					   	</li>
-					   	<li style="background-image: url(assets/gallery_6.jpeg);">
+					   	<%end%>
+					   	
+					   	<% @restaurants2.each do |restaurant2| %>
+					   	<li style="background-image: url(<%= restaurant2.image %>);">
 					   		<div class="overlay-gradient"></div>
 					   		<div class="container-fluid">
 					   			<div class="row">
@@ -58,18 +63,21 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から2番目のみをもって来たい-->
-													<% @restaurants2.each do |restaurant2| %>
+													
 													<h2><%= restaurant2.name%></h2>
 													<p><%= restaurant2.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant2[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-						   						<%end%>
+						   						
 						   					</div>
 						   				</div>
 						   			</div>
 						   		</div>
 					   		</div>
 					   	</li>
-					   	<li style="background-image: url(assets/gallery_5.jpeg);">
+					   	<%end%>
+					   	
+					   	<% @restaurants3.each do |restaurant3| %>
+					   	<li style="background-image: url(<%= restaurant3.image %>);">
 					   		<div class="overlay-gradient"></div>
 					   		<div class="container-fluid">
 					   			<div class="row">
@@ -77,17 +85,19 @@
 						   				<div class="slider-text-inner">
 						   					<div class="desc">
 						   						<!--#最新行から3番目のみをもって来たい						   						-->
-													<% @restaurants3.each do |restaurant3| %>
+													
 													<h2><%= restaurant3.name%></h2>
 													<p><%= restaurant3.overview%></p>
 													<%= link_to "Show", restaurant_path(restaurant3[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-						   						<%end%>
+						   						
 						   					</div>
 						   				</div>
 						   			</div>
 						   		</div>
 					   		</div>
-					   	</li>		   	
+					   	</li>
+					   	<%end%>
+					   	
 					  	</ul>
 				  	</div>
 				</aside>
@@ -133,7 +143,7 @@
 			<% @western.last(3).each do |western| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a><%= image_tag western.image, :class => "img-responsive" %></a>
 						<div class="blog-text">
 							<h3><a><%= truncate(western.name, length:10) %></a></h3>
 							<p><%= truncate(western.overview, length:50) %></p>
@@ -157,7 +167,7 @@
 			<% @italian.last(3).each do |italian| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a><%= image_tag italian.image, :class => "img-responsive" %></a>
 						<div class="blog-text">
 							<h3><a><%= truncate(italian.name, length:10) %></a></h3>
 							<p><%= truncate(italian.overview, length:50) %></p>
@@ -181,7 +191,7 @@
 			<% @french.last(3).each do |french| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a><%= image_tag french.image, :class => "img-responsive" %></a>
 						<div class="blog-text">
 							<h3><a><%= truncate(french.name, length:10) %></a></h3>
 							<p><%= truncate(french.overview, length:50) %></p>
@@ -205,7 +215,7 @@
 			<% @chinese.last(3).each do |chinese| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a><%= image_tag chinese.image, :class => "img-responsive" %></a>
 						<div class="blog-text">
 							<h3><a><%= truncate(chinese.name, length:10) %></a></h3>
 							<p><%= truncate(chinese.overview, length:50) %></p>
@@ -229,7 +239,7 @@
 			<% @others.last(3).each do |others| %>	
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a class="blog-bg" style="background-image: url(assets/gallery_1.jpeg);"></a>
+						<a><%= image_tag others.image, :class => "img-responsive" %></a>
 						<div class="blog-text">
 							<h3><a><%= truncate(others.name, length:10) %></a></h3>
 							<p><%= truncate(others.overview, length:50) %></p>
