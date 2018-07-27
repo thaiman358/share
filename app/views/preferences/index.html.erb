@@ -29,9 +29,13 @@
 				
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item animate-box">
-					<% @preference.each do |preference|%>
-						<p><%= preference.preference%></p>
-						<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+					<% if @preference.present?%>
+					  <% @preference.each do |preference|%>
+					  	<p><%= preference.preference%></p>
+					  	<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+					  <% end %>
+					<% else %>
+						<p><%= link_to "register preference", new_ownprefer_path %><p>
 					<% end %>
 					</div>
 				</div>
