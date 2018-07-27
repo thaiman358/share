@@ -15,7 +15,7 @@ class OwnprefersController < ApplicationController
     end
     private
     def ownprefer_params
-      params.require(:preference).permit(:email, :preference, :user_id)
+      params.require(:preference).permit(:email, :preference, :unpreference, :user_id)
     end
 
 end
