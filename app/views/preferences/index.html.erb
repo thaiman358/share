@@ -31,7 +31,8 @@
 					<div class="fh5co-item animate-box">
 					<% if @preference.present?%>
 					  <% @preference.each do |preference|%>
-					  	<p><%= preference.preference%></p>
+					  	<p>Preference:<%= preference.preference%></p>
+					  	<p>Unpreference:<%= preference.unpreference%></p>
 					  	<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
 					  <% end %>
 					<% else %>
@@ -56,7 +57,8 @@
 					<div class="fh5co-item animate-box">
 					<% @otherpreference.each do |others|%>
 						<h3><%= others.client_name%>様</h3>
-						<p><%= others.preference%></p>
+						<p>Preference:<%= others.preference%></p>
+						<p>Unpreference:<%= others.unpreference%></p>
 					<% end %>
 					</div>
 				</div>
