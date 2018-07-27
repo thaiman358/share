@@ -23,10 +23,20 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Your Preference</h2>
-
-					<% @preference.each do |preference|%>
-						<p><%= preference.preference%></p>
-						<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+					<div class="row">
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+					<div class="fh5co-item animate-box">
+					<% if @preference.present?%>
+					  <% @preference.each do |preference|%>
+					  	<p>Preference:<%= preference.preference%></p>
+					  	<p>Unpreference:<%= preference.unpreference%></p>
+					  	<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
+					  <% end %>
+					<% else %>
+						<p><%= link_to "register preference", new_ownprefer_path %><p>
 					<% end %>
 
 				</div>
@@ -38,7 +48,8 @@
 
 					<% @otherpreference.each do |others|%>
 						<h3><%= others.client_name%>様</h3>
-						<p><%= others.preference%></p>
+						<p>Preference:<%= others.preference%></p>
+						<p>Unpreference:<%= others.unpreference%></p>
 					<% end %>
 
 				</div>
@@ -63,4 +74,3 @@
 	<!--		</div>-->
 	<!--	</div>-->
 	<!--</div>-->
-
