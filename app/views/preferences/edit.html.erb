@@ -18,15 +18,29 @@
 			<div class="row">
 				<div class="col-md-4 col-md-push-1 animate-box">
 					<div class="section-heading">
-                       <%= form_with(model:@preference,local: true) do |f| %>
-                         <%= f.hidden_field :email %>
+                       	<%= form_with(model:@preference,local: true) do |f| %>
+                        <%= f.hidden_field :email %>
 
-                         <%= f.label :"Answer Preference" %>
-                         <%= f.text_field :preference %>
-                         <%= f.label :"Answer Unpreference" %>
-                     　　<%= f.text_field :unpreference %>
-                         <%= f.submit "send" %>
-                       <% end %>
+                       	<div class="row form-group">
+							<div class="col-md-12">
+	                        	<%= f.label :"Modify your Preference" %>
+                        		<%= f.text_area :preference, class:"form-control" %>
+                         	</div>
+                        </div>
+
+                       	<div class="row form-group">
+							<div class="col-md-12">
+                        		<%= f.label :"Modify your Unpreference" %>
+                     　				<%= f.text_area :unpreference, class:"form-control" %>
+                         	</div>
+                        </div>
+
+                       	<div class="row form-group">
+							<div class="col-md-12">
+	                        	<%= f.submit "send", class:"btn btn-primary btn-outline btn-lg"  %>
+                        	</div>
+                        </div>
+                       	<% end %>
 
 					</div>
 				</div>
