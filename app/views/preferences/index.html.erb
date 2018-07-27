@@ -18,44 +18,49 @@
 		</div>
 	</header>
 
-	<div id="fh5co-featured-menu" class="fh5co-section">
+	<div id="fh5co-blog" class="fh5co-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12 fh5co-heading animate-box">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Your Preference</h2>
-					<div class="row">
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item animate-box">
+
 					<% @preference.each do |preference|%>
 						<p><%= preference.preference%></p>
 						<p><%= link_to "edit", edit_preference_path(preference.id) %><p>
 					<% end %>
-					</div>
+
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<div id="fh5co-featured-menu" class="fh5co-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 fh5co-heading animate-box">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Past Client's Preference</h2>
-					<div class="row">
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
-					<div class="fh5co-item animate-box">
+
 					<% @otherpreference.each do |others|%>
 						<h3><%= others.client_name%>様</h3>
 						<p><%= others.preference%></p>
 					<% end %>
-					</div>
+
 				</div>
 			</div>
+			
+			
 		</div>
 	</div>
+
+	<!--<div id="fh5co-blog" class="fh5co-section">-->
+	<!--	<div class="container">-->
+	<!--		<div class="row animate-box">-->
+	<!--			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">-->
+	<!--				<h2>Past Client's Preference</h2>-->
+
+	<!--				<%# @otherpreference.each do |others|%>-->
+	<!--					<h3><%#= others.client_name%>様</h3>-->
+	<!--					<p><%#= others.preference%></p>-->
+	<!--				<%# end %>-->
+
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--</div>-->
+
