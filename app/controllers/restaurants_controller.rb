@@ -8,7 +8,9 @@ class RestaurantsController < ApplicationController
   
   def show
     @restaurant = Restaurant.find(params[:id])
-    @favorite = current_user.favs.find_by(restaurant_id: @restaurant.id)
+    if logged_in?
+      @favorite = current_user.favs.find_by(restaurant_id: @restaurant.id)
+    end
   end
   
   def create
