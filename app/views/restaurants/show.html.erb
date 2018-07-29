@@ -2,8 +2,6 @@
 	<div id="page">
 
 	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<%= @restaurant.image %>);" data-stellar-background-ratio="0.5">
-	<!--<header>-->
-	    <%#= image_tag @restaurant.image, :class => "fh5co-cover js-fullheight", :id => "fh5co-header" %>
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -11,13 +9,14 @@
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<h1><%= @restaurant.name %></h1>
-                            <%#= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-                            <%# if @favorite.present? %>
-                                <%#= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-                            <%# else %>
-                                <%#= button_to 'Like', favorites_path(restaurant_id: @restaurant.id), method: :post, class: 'btn btn-primary' %>
-                            <%# end %>
-							<!--<h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>-->
+                            <%= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
+                            <% if logged_in?%>
+                              <% if @favorite.present? %>
+                                <%= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+                              <% else %>
+                                <%= button_to 'Like', favorites_path(restaurant_id: @restaurant.id), method: :post, class: 'btn btn-primary' %>
+                              <% end %>
+                            <% end %>
 						</div>
 					</div>
 				</div>
@@ -44,48 +43,15 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-md-push-1 animate-box">
-					<!--<aside id="fh5co-slider-wrwap">-->
 			                <%= link_to "Go!", new_form_path(restaurant_id: @restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-                            <% if @favorite.present? %>
-                                <%= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-                            <% else %>
-                                <%= button_to 'Like', favorites_path(restaurant_id: @restaurant.id), method: :post, class: 'btn btn-primary' %>
-                            <% end %>
-			
-				<!--	<div class="flexslider">-->
-				<!--		<ul class="slides">-->
-				<!--		画像変更しなくてはならない-->
-			
-				<!--	   		<div class="overlay-gradient"></div>-->
-				<!--	   		<div class="container-fluid">-->
-				<!--	   			<div class="row">-->
-				<!--		   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">-->
-				<!--		   				<div class="slider-text-inner">-->
-				<!--		   					<div class="desc">-->
-				<!--		   					</div>-->
-				<!--		   				</div>-->
-				<!--		   			</div>-->
-				<!--		   		</div>-->
-				<!--	   		</div>-->
-				<!--	   	</li>-->
-				<!--	  	</ul>-->
-				<!--  	</div>-->
-				<!--</aside>-->
+                              <% if logged_in? %>
+                                <% if @favorite.present? %>
+                                    <%= button_to 'UnLike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+                                <% else %>
+                                    <%= button_to 'Like', favorites_path(restaurant_id: @restaurant.id), method: :post, class: 'btn btn-primary' %>
+                                <% end %>
+                              <% end %>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-<p><%#= image_tag @restaurant.image, :class => "img-responsive" %></p>
-<p><%#= @restaurant.name %></p>
-<p><%#= @restaurant.category %></p>
-<p><%#= @restaurant.overview %></p>
-<p><%#= @restaurant.tel %></p>
-<p><%#= @restaurant.hour %></p>
-<p><%#= @restaurant.price %></p>
-<p><%#= @restaurant.address %></p>
