@@ -1800,8 +1800,8 @@ textarea {
 
 /*画像大きさ変更*/
 .img-responsive{
-  height: 200px;
-  width: 250px;
+  height: 250px;
+  width: 360px;
 }
 
 #preference_content{
