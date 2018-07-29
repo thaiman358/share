@@ -50,36 +50,7 @@
 	</div>
 	
 	
-	<!--============================-->
-	
-	<div id="fh5co-blog" class="fh5co-section">
-		<div class="container">
-			<div class="row">
-				
-				<% @articles.each do |article| %>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-               			  <% if @reads.find_by(article_id: article.id) %>
-							<h3><a href="#"><%= article.title %></a></h3>
-							<p><%= article.content %></p>
-						  
-						  <p>
-						  <% @favarticle = current_user.favarticles.find_by(article_id: article.id)%>
-                          <% if @favarticle.present? %>
-                            <%= button_to 'UnLike', favarticle_path(id: @favarticle.id), :method => :delete, class: 'btn btn-danger' %>
-                          <% else %>
-                            <%= button_to 'Like', favarticles_path(article_id: article.id), :method => :post, class: 'btn btn-primary' %>
-                          <% end %></p>
-				          <% end %>							
-						</div> 
-					</div>
-				</div>
-				<% end %>
-				
-			</div>
-		</div>
-	</div>
+
 </div>
 </div>
 </div>
