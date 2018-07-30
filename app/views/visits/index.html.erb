@@ -25,6 +25,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
 					<div class="fh5co-item animate-box">
 						<p><%= image_tag restaurant.image, :class => "img-responsive" %></p>
+						<div class="blog-text">
 						<h3><%= truncate(restaurant.name, length:10) %></h3>
 						<h3>
 							<% if visit.client_name.present? %>
@@ -33,7 +34,7 @@
 						</h3>
 						<p><%= truncate(restaurant.overview, length:50) %></p>
 						<%= link_to "Show", restaurant_path(restaurant[:id]), :method=>:get, class:"btn btn-primary btn-outline"%>
-						<br>
+						</div>
 					</div>
 				</div>
 			<% end %>
