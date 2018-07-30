@@ -43,12 +43,12 @@
 
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Past Client's Preference</h2>
+					<h2>Past Clients</h2>
 
 					<% @otherpreference.each do |others|%>
-						<h3><%= others.client_name%>様</h3>
-						<p>Preference:<%= others.preference%></p>
-						<p>Unpreference:<%= others.unpreference%></p>
+						<h2><%= others.client_name%>様</h2>
+						<p>Preference: <%= others.preference%></p>
+						<p>UnPreference: <%= others.unpreference%></p>
 					<% end %>
 
 				</div>
@@ -73,3 +73,4 @@
 	<!--		</div>-->
 	<!--	</div>-->
 	<!--</div>-->
+
